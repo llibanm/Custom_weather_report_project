@@ -7,7 +7,7 @@ class weather_report():
 
     def __init__(self) -> None:
 
-        load_dotenv("/home/vazek/Bureau/API_Json_Testing/.env")
+        load_dotenv(".env")
         
         base_url = os.getenv("base_url") # base url which we will build the complete url upon
         api_key =  os.getenv("API_KEY")

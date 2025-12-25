@@ -1,6 +1,6 @@
 import requests
 import os
-import datetime
+from datetime import date
 #from dotenv import load_dotenv
 
 if __name__=='__main__':
@@ -26,9 +26,9 @@ if __name__=='__main__':
 
         print(response.json())"""
     
-    date = datetime.date.today()
+    date = date.today()
 
-    formatted_date = date.strftime("%d %m %Y")
+    formatted_date = date.strftime("%d-%m-%Y")
 
     print('today\'s date is :',formatted_date)
 
