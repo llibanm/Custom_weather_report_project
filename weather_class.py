@@ -44,7 +44,7 @@ class weather_report():
 
          
 
-    def build_request(self,city:str,current_weather : bool = False,forecast : bool = True,aqi : bool = False):
+    def build_request(self,city:str,days:int = 1,current_weather : bool = False,forecast : bool = True,aqi : bool = False):
         complete_url = ""
 
         if current_weather is True:
@@ -60,11 +60,11 @@ class weather_report():
 
             if aqi is False:
 
-                complete_url = self.base_url + self.forecast+'?'+'key='+self.api_key+'&'+'q='+city+'&aqi=no'
+                complete_url = self.base_url + self.forecast+'?'+'key='+self.api_key+'&'+'q='+city+"&days="+str(days)+'&aqi=no'
 
             else :
 
-                complete_url = self.base_url + self.forecast+'?'+'key='+self.api_key+'&'+'q='+city+'&aqi=yes'
+                complete_url = self.base_url + self.forecast+'?'+'key='+self.api_key+'&'+'q='+city+"&days="+str(days)+'&aqi=yes'
 
         return complete_url
 
