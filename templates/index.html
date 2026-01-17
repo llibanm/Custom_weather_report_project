@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Ma Météo Python</h1>
+    <button onclick="trouverMaMeteo()">📍 Me localiser et voir la météo</button>
+    <div id="resultat"></div>
+
+    <script>
+        function trouverMaMeteo() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(envoyerAuPython, gererErreur);
+            } else {
+                alert("Géolocalisation non supportée");
+            }
+        }
+
+        function envoyerAuPython(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            // Envoi des données vers ton script Python via fetch
+            fetch('/ma-meteo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ lat: lat, lon: lon })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Affichage de la réponse de Python
+                document.getElementById("resultat").innerHTML = 
+                    `Il fait ${data.main.temp}°C à ${data.name}`;
+            });
+        }
+
+        function gererErreur(error) {
+            console.log("Erreur GPS, bascule vers IP...");
+            // C'est ici que tu mettrais ton appel IP-API de secours !
+        }
+    </script>
+</body>
+</html>
