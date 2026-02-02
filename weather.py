@@ -107,6 +107,6 @@ class weather_report():
 if __name__=='__main__':
 
     weather = weather_report()
-    weather.weather_report_today("Poitiers")
+    weather.weather_report_today("Nantes")
 
     pass       
