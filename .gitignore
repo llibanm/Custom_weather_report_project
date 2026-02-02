@@ -9,4 +9,4 @@ __pycache__/
 coverage/
 dist/
 test_request.py
-list_of_possible_upgrades
+list_of_possible_upgrades.txt
