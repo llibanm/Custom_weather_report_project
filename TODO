@@ -1,0 +1,5 @@
+
+- automatic search basd on geolocalisation or ip
+- not showing the meteo past the current time but only ahead (comparing with timestamp)
+- using React 
+-
